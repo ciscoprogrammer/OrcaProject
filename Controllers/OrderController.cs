@@ -5,6 +5,7 @@ using OrcaProject.Models;
 
 namespace OrcaProject.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     
 
@@ -71,6 +72,28 @@ namespace OrcaProject.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpPost("{orderId}/close")]
+        [Authorize] 
+        public async Task<IActionResult> CloseOrder(int orderId)
+        {
+            var order = await _context.Orders.FindAsync(orderId);
+            if (order == null)
+            {
+                return NotFound("Order not found.");
+            }
+
+            if (order.IsClosed)
+            {
+                return BadRequest("Order is already closed.");
+            }
+
+            order.IsClosed = true; // Marks the order as closed
+            _context.Entry(order).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent(); // Returns a 204 No Content status to indicate successful closing without returning data
         }
     }
 

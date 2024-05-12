@@ -75,3 +75,4 @@ C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\refint\OrcaProject.
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.pdb
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.genruntimeconfig.cache
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\ref\OrcaProject.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.sourcelink.json

@@ -10,8 +10,9 @@ namespace OrcaProject.Controllers
 {
     public class AuthenticationController : Controller
     {
-       
-        
+
+        [Route("api/[controller]")]
+        [ApiController]
         public class AuthenticateController : ControllerBase
         {
             private readonly IConfiguration _configuration;
@@ -24,8 +25,7 @@ namespace OrcaProject.Controllers
             }
 
            
-            [Route("api/[controller]")]
-            [ApiController]
+           
             [HttpPost]
             public IActionResult Authenticate([FromBody] User login)
             {
