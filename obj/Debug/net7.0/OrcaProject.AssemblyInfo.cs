@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrcaProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e482ee69a83f1066488559b222083d055b5e1da3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7848cba32a79f30b17cba2de8e6fb02036e6a353")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrcaProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrcaProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

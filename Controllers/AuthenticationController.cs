@@ -8,17 +8,17 @@ using System.Text;
 
 namespace OrcaProject.Controllers
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthenticationController : Controller
     {
 
-        [Route("api/[controller]")]
-        [ApiController]
-        public class AuthenticateController : ControllerBase
-        {
+       
             private readonly IConfiguration _configuration;
             private readonly AppDbContext _context;
 
-            public AuthenticateController(IConfiguration configuration, AppDbContext context)
+            public AuthenticationController(IConfiguration configuration, AppDbContext context)
             {
                 _context = context;
                 _configuration = configuration;
@@ -36,16 +36,16 @@ namespace OrcaProject.Controllers
 
                 if (IsValidUserCredentials(login.Username, login.Password))
                 {
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
                     var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                     var tokenOptions = new JwtSecurityToken(
                         claims: new List<Claim>
                         {
                     new Claim(ClaimTypes.Name, login.Username),
-                    new Claim(ClaimTypes.Role, "Administrator") // Adjust role as needed
+                    new Claim(ClaimTypes.Role, "Administrator") 
                         },
-                        expires: DateTime.Now.AddMinutes(30), // Token expiration time
+                        expires: DateTime.Now.AddMinutes(5000), // Token expiration time
                         signingCredentials: signinCredentials
                     );
 
@@ -67,6 +67,6 @@ namespace OrcaProject.Controllers
             }
             }
         }
-    }
+    
 
 

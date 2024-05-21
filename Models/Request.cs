@@ -3,6 +3,10 @@
     public class Request
     {
         public int RequestId { get; set; }
+
+        public string Requestname { get; set; }
+
+        public string RequestType { get; set; }
         public string Payload { get; set; }
         public DateTime DateCreated { get; set; }
         public int UserId { get; set; }

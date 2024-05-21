@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrcaProject.Data;
 using OrcaProject.Models;
@@ -9,6 +10,7 @@ namespace OrcaProject.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RequestsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -46,13 +48,14 @@ namespace OrcaProject.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                
             }
             catch (Exception ex)
             {
                 // Log the exception details here
                 return StatusCode(500, "A problem happened while handling your request.");
             }
-            return CreatedAtAction("GetRequest", new { id = request.RequestId }, request);
+            return Ok(new { message = "Your Request Created Successfully." });
         }
 
         [HttpDelete("{id}")]
@@ -67,7 +70,7 @@ namespace OrcaProject.Controllers
             _context.Requests.Remove(request);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "Your Request Deleted Successfully." });
         }
     }
 

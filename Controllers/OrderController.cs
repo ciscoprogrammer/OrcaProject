@@ -11,6 +11,7 @@ namespace OrcaProject.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -56,7 +57,7 @@ namespace OrcaProject.Controllers
             _context.Entry(order).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "Order updated successfully." });
         }
 
         [HttpDelete("{id}")]
@@ -71,7 +72,7 @@ namespace OrcaProject.Controllers
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "Order Deleted successfully." });
         }
 
         [HttpPost("{orderId}/close")]
@@ -93,7 +94,7 @@ namespace OrcaProject.Controllers
             _context.Entry(order).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return NoContent(); // Returns a 204 No Content status to indicate successful closing without returning data
+            return Ok(new { message = "Order Closed Successfully." }); // Returns a 204 No Content status to indicate successful closing without returning data
         }
     }
 

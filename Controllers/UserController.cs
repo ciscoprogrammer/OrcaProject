@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 //using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrcaProject.Data;
@@ -7,6 +8,7 @@ using OrcaProject.Models;
 namespace OrcaProject.Controllers
 {
     [Route("api/[controller]")]
+    
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -19,6 +21,7 @@ namespace OrcaProject.Controllers
 
         // GET: api/Users
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
@@ -26,6 +29,7 @@ namespace OrcaProject.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -45,11 +49,12 @@ namespace OrcaProject.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return Ok(new { message = "The User Added Successfully." });
         }
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutUser(int id, User user)
         {
             if (id != user.UserId)
@@ -75,11 +80,12 @@ namespace OrcaProject.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new { message = " User Updated Successfully." });
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -91,7 +97,7 @@ namespace OrcaProject.Controllers
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "User Deleted Successfully." });
         }
 
         private bool UserExists(int id)
