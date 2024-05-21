@@ -1,0 +1,25 @@
+# Ignore Visual Studio temporary files, build results, and
+# other generated files.
+**/.vs/
+**/.vscode/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.obj
+*.o
+*.log
+*.vsidx
+
+# Ignore build directories
+**/bin/
+**/obj/
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+
+# Ignore any other files or directories you don't want to track
+*.swp
