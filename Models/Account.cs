@@ -8,8 +8,9 @@ namespace OrcaProject.Models
         public string AccountName { get; set; }
         public string AccountType { get; set; } // e.g., Admin, User, Guest
         public DateTime CreatedOn { get; set; }
-        public int UserId { get; set; } // Foreign key relation to User
-        
+        public string UserId { get; set; } // Foreign key relation to User
+
+        public User User { get; set; }
 
     }
 }

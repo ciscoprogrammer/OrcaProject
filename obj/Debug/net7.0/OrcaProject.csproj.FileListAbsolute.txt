@@ -76,3 +76,9 @@ C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.pdb
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.genruntimeconfig.cache
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\ref\OrcaProject.dll
 C:\Users\pillaiyar\source\repos\OrcaProject\obj\Debug\net7.0\OrcaProject.sourcelink.json
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\pillaiyar\source\repos\OrcaProject\bin\Debug\net7.0\Microsoft.Extensions.Options.dll

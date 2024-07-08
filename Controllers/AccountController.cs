@@ -45,7 +45,7 @@ namespace OrcaProject.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var userExists = await _context.Users.AnyAsync(u => u.UserId == account.UserId);
+            var userExists = await _context.Users.AnyAsync(u => u.Id == account.UserId);
             if (!userExists)
             {
                 return BadRequest("Invalid UserId: User does not exist.");

@@ -55,9 +55,9 @@ namespace OrcaProject.Controllers
         // PUT: api/Users/5
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutUser(string id, User user)
         {
-            if (id != user.UserId)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
@@ -100,9 +100,9 @@ namespace OrcaProject.Controllers
             return Ok(new { message = "User Deleted Successfully." });
         }
 
-        private bool UserExists(int id)
+        private bool UserExists(string id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 

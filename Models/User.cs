@@ -1,9 +1,11 @@
-﻿namespace OrcaProject.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace OrcaProject.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int UserId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }  // Consider storing password hashes instead
+        //public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; } // Consider storing password hashes instead
     }
 }
